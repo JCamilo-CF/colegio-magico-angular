@@ -14,9 +14,10 @@ export class HechizoApiService {
   // Consume:  GET /api/hechizos?tipo=Fuego   (en el backend: @GET + @QueryParam("tipo"))
   // Debe devolver el Observable de this.http.get<Hechizo[]>(...) enviando el parámetro "tipo".
   // PISTA: crea new HttpParams().set('tipo', tipo) y pásalo en las opciones del get: { params }.
+
   buscarPorTipo(tipo: string): Observable<Hechizo[]> {
-    // Escribe tu código aquí y borra la línea de abajo:
-    return of([]);
+    const params = new HttpParams().set('tipo', tipo);
+    return this.http.get<Hechizo[]>(this.apiUrl, { params });
   }
 
   // ✍️ RETO 3: El Escriba del Grimorio
