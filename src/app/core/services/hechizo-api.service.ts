@@ -25,7 +25,6 @@ buscarPorTipo(tipo: string): Observable<Hechizo[]> {
   // ⚠️ El backend responde TEXTO ("Hechizo creado correctamente"), no JSON.
   // PISTA: mira cómo lo resuelve MagoApiService.crear() con responseType.
   crear(hechizo: Hechizo): Observable<string> {
-    // Escribe tu código aquí y borra la línea de abajo:
-    return of('');
+    return this.http.post(this.apiUrl, hechizo, { responseType: 'text' });
   }
 }
